@@ -1,0 +1,30 @@
+{
+  "name": "pioppo",
+  "repository": "github:fabiospampinato/pioppo",
+  "description": "A tiny isomorphic batched logger. ~3x faster than regular logging in Node.",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "exports": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "benchmark": "node tasks/benchmark.js",
+    "clean": "tsex clean",
+    "compile": "tsex compile",
+    "compile:watch": "tsex compile --watch",
+    "prepublishOnly": "tsex prepare"
+  },
+  "keywords": [
+    "logger",
+    "tiny",
+    "isomorphic",
+    "fast"
+  ],
+  "dependencies": {
+    "when-exit": "^2.1.0"
+  },
+  "devDependencies": {
+    "tsex": "^2.2.2",
+    "typescript": "^4.9.5"
+  }
+}
