@@ -1,6 +1,7 @@
 
 /* IMPORT */
 
+import {debounce} from 'dettle';
 import type {Scheduler} from './types';
 
 /* MAIN */
@@ -9,7 +10,11 @@ import type {Scheduler} from './types';
 
 const scheduler: Scheduler = fn => {
 
-  setTimeout ( fn, 1000 );
+  const dfn = debounce ( fn, 100, { maxWait: 60_000 } );
+
+  dfn ();
+
+  return dfn;
 
 };
 

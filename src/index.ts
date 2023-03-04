@@ -3,7 +3,7 @@
 
 import whenExit from 'when-exit';
 import scheduler from './scheduler';
-import type {Options, Scheduler, Transport} from './types';
+import type {Callback, Options, Scheduler, Transport} from './types';
 
 /* MAIN */
 
@@ -16,7 +16,9 @@ class Pioppo {
   private infos: string[] = [];
   private debugs: string[] = [];
 
-  private scheduled: boolean;
+  private scheduled?: boolean;
+  private schedulerCb?: Callback;
+
   private scheduler: Scheduler;
   private transports: Transport[];
 
@@ -95,17 +97,23 @@ class Pioppo {
 
   schedule (): void {
 
-    if ( this.scheduled ) return;
+    if ( this.scheduled ) {
 
-    this.scheduled = true;
+      this.schedulerCb?.();
 
-    this.scheduler ( () => {
+    } else {
 
-      this.scheduled = false;
+      this.scheduled = true;
 
-      this.flush ();
+      this.schedulerCb = this.scheduler ( () => {
 
-    });
+        this.scheduled = false;
+
+        this.flush ();
+
+      });
+
+    }
 
   }
 

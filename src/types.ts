@@ -1,13 +1,17 @@
 
 /* MAIN */
 
+type Callback = {
+  (): void
+};
+
 type Options = {
   scheduler?: Scheduler,
   transports?: Transport[]
 };
 
 type Scheduler = {
-  ( callback: () => void ): void
+  ( callback: Callback ): Callback | undefined
 };
 
 type Transport = {
@@ -19,4 +23,4 @@ type Transport = {
 
 /* EXPORT */
 
-export type {Options, Scheduler, Transport};
+export type {Callback, Options, Scheduler, Transport};
