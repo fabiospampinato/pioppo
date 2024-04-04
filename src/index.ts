@@ -122,3 +122,4 @@ class Pioppo {
 /* EXPORT */
 
 export default Pioppo;
+export type {Options, Scheduler, Transport};
