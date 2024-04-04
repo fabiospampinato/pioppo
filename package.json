@@ -2,7 +2,7 @@
   "name": "pioppo",
   "repository": "github:fabiospampinato/pioppo",
   "description": "A tiny isomorphic batched logger. ~3x faster than regular logging in Node.",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "type": "module",
   "main": "dist/index.js",
   "exports": "./dist/index.js",
