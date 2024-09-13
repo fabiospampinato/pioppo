@@ -3,6 +3,7 @@
 
 import whenExit from 'when-exit';
 import scheduler from './scheduler';
+import {isTransportMultiple} from './utils';
 import type {Callback, Options, Scheduler, Transport} from './types';
 
 /* MAIN */
@@ -86,10 +87,21 @@ class Pioppo {
 
       const transport = this.transports[i];
 
-      if ( errors ) transport.error ( errors );
-      if ( warns ) transport.warn ( warns );
-      if ( infos ) transport.info ( infos );
-      if ( debugs ) transport.debug ( debugs );
+      if ( isTransportMultiple ( transport ) ) {
+
+        if ( errors ) transport.error ( errors );
+        if ( warns ) transport.warn ( warns );
+        if ( infos ) transport.info ( infos );
+        if ( debugs ) transport.debug ( debugs );
+
+      } else {
+
+        if ( errors ) transport ( errors );
+        if ( warns ) transport ( warns );
+        if ( infos ) transport ( infos );
+        if ( debugs ) transport ( debugs );
+
+      }
 
     }
 

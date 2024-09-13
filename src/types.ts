@@ -14,13 +14,22 @@ type Scheduler = {
   ( callback: Callback ): Callback | undefined
 };
 
-type Transport = {
-  error: ( message: string ) => void,
-  warn: ( message: string ) => void,
-  info: ( message: string ) => void,
-  debug: ( message: string ) => void
+type Transport = (
+  TransportSingle |
+  TransportMultiple
+);
+
+type TransportSingle = {
+  ( message: string ): void
+};
+
+type TransportMultiple = {
+  error: TransportSingle,
+  warn: TransportSingle,
+  info: TransportSingle,
+  debug: TransportSingle
 };
 
 /* EXPORT */
 
-export type {Callback, Options, Scheduler, Transport};
+export type {Callback, Options, Scheduler, Transport, TransportSingle, TransportMultiple};
