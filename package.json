@@ -2,6 +2,7 @@
   "name": "pioppo",
   "repository": "github:fabiospampinato/pioppo",
   "description": "A tiny isomorphic batched logger. ~3x faster than regular logging in Node.",
+  "license": "MIT",
   "version": "1.2.0",
   "type": "module",
   "main": "dist/index.js",
@@ -21,11 +22,11 @@
     "fast"
   ],
   "dependencies": {
-    "dettle": "^1.0.1",
-    "when-exit": "^2.1.1"
+    "dettle": "^1.0.5",
+    "when-exit": "^2.1.4"
   },
   "devDependencies": {
-    "tsex": "^3.0.1",
-    "typescript": "^5.1.6"
+    "tsex": "^4.0.2",
+    "typescript": "^5.7.3"
   }
 }
