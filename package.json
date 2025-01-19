@@ -3,7 +3,7 @@
   "repository": "github:fabiospampinato/pioppo",
   "description": "A tiny isomorphic batched logger. ~3x faster than regular logging in Node.",
   "license": "MIT",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "type": "module",
   "main": "dist/index.js",
   "exports": "./dist/index.js",
