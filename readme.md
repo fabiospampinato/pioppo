@@ -5,13 +5,15 @@ A tiny isomorphic batched logger. ~3x faster than regular logging in Node.
 ## Install
 
 ```sh
-npm install --save pioppo
+npm install pioppo
 ```
 
 ## Usage
 
 ```ts
 import Pioppo from 'pioppo';
+
+// Creating a Pioppo instance
 
 const pioppo = new Pioppo ({
   transports: [console]
